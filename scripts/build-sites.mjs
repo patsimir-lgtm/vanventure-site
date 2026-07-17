@@ -10,6 +10,8 @@ const staticFiles = [
   "index-en.html",
   "datenschutz.html",
   "privacy.html",
+  "danke.html",
+  "thanks.html",
   "monteure.html",
   "installers.html",
   "staticwebapp.config.json",
