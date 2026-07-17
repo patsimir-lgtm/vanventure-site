@@ -41,5 +41,3 @@ for (const file of staticFiles) {
   await copyIntoPublic(file);
 }
 
-await mkdir(join(dist, ".openai"), { recursive: true });
-await cp(join(root, ".openai", "hosting.json"), join(dist, ".openai", "hosting.json"));

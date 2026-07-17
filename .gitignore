@@ -1,0 +1,16 @@
+.DS_Store
+tmp/
+*.mov
+*.pdf
+*.docx
+image*.jpeg
+image*.png
+Trip Alpes *.jpg
+670946678_*.jpg
+B4F051E6-*.png
+dist/
+site-archive.tgz
+*.zip
+domain-und-email-entwuerfe.md
+gmail-email-vorlagen-vanventure.md
+vermittlungs-und-kooperationsvertrag-montagepartner.md
