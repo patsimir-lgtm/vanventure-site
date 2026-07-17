@@ -349,11 +349,30 @@
       }
 
       .package-card {
+        position: relative;
         overflow: hidden;
         border: 1px solid var(--line);
         border-radius: var(--radius);
         background: var(--white);
         box-shadow: var(--shadow);
+      }
+
+      .package-card.featured {
+        border: 2px solid var(--clay);
+      }
+
+      .package-badge {
+        display: inline-flex;
+        width: fit-content;
+        margin-bottom: 14px;
+        padding: 7px 10px;
+        border-radius: 999px;
+        color: var(--white);
+        background: var(--clay);
+        font-size: 0.78rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
       }
 
       .package-media {
@@ -826,18 +845,19 @@
                 </ul>
               </div>
             </article>
-            <article class="package-card">
+            <article class="package-card featured">
               <div class="package-media">
                 <img src="assets/skep-van-alps.jpg" alt="Large SKEP setup with spare wheel, boxes and bicycles">
               </div>
               <div class="package-body">
+                <span class="package-badge">Most requested</span>
                 <div class="package-head">
                   <h3>Large installation</h3>
-                  <div class="price">approx. 1,000 €</div>
+                  <div class="price">approx. 1,000 € incl. VAT</div>
                 </div>
                 <p>
-                  Extended upper setup for spare wheel, boxes and two bicycles. The final price is
-                  confirmed by the installer.
+                  Extended upper setup for spare wheel, boxes and two bicycles. The guide price
+                  remains approx. 1,000 €. Extra vehicle parts or rental workshop costs may apply.
                 </p>
                 <ul class="package-list">
                   <li>Rear carrier installation with upper setup</li>

@@ -349,11 +349,30 @@
       }
 
       .package-card {
+        position: relative;
         overflow: hidden;
         border: 1px solid var(--line);
         border-radius: var(--radius);
         background: var(--white);
         box-shadow: var(--shadow);
+      }
+
+      .package-card.featured {
+        border: 2px solid var(--clay);
+      }
+
+      .package-badge {
+        display: inline-flex;
+        width: fit-content;
+        margin-bottom: 14px;
+        padding: 7px 10px;
+        border-radius: 999px;
+        color: var(--white);
+        background: var(--clay);
+        font-size: 0.78rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
       }
 
       .package-media {
@@ -824,18 +843,20 @@
                 </ul>
               </div>
             </article>
-            <article class="package-card">
+            <article class="package-card featured">
               <div class="package-media">
                 <img src="assets/skep-van-alps.jpg" alt="Großer SKEP Aufbau mit Reserverad, Kisten und Fahrrädern">
               </div>
               <div class="package-body">
+                <span class="package-badge">Meist angefragt</span>
                 <div class="package-head">
                   <h3>Große Montage</h3>
-                  <div class="price">ca. 1.000 €</div>
+                  <div class="price">ca. 1.000 € inkl. MwSt.</div>
                 </div>
                 <p>
                   Erweiterter Aufbau nach oben für Reserverad, Kisten und zwei Fahrräder. Der
-                  finale Preis wird vom Montagepartner bestätigt.
+                  Richtpreis bleibt ca. 1.000 €. Zusätzliche Fahrzeugteile oder Mietwerkstattkosten
+                  können separat anfallen.
                 </p>
                 <ul class="package-list">
                   <li>Montage des Heckträgers mit oberem Aufbau</li>
