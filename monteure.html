@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vanventure | Montagepartner für Gear Carrier und Van-Zubehör gesucht</title>
+    <meta
+      name="description"
+      content="Vanventure sucht selbständige Montagepartner mit Betriebshaftpflichtversicherung für Gear Carrier, Hecksysteme und Van-Zubehör in Deutschland."
+    >
+    <style>
+      :root {
+        --ink: #161616;
+        --muted: #626861;
+        --line: #d9ded6;
+        --paper: #f7f5ef;
+        --white: #ffffff;
+        --forest: #1f3c2d;
+        --clay: #b35d34;
+        --sand: #e8dbc5;
+        --radius: 8px;
+        --shadow: 0 20px 50px rgba(22, 22, 22, 0.16);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.5;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .topbar {
+        position: fixed;
+        z-index: 20;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 16px clamp(18px, 4vw, 56px);
+        color: var(--white);
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0));
+      }
+
+      .brand {
+        font-weight: 850;
+      }
+
+      .nav {
+        display: flex;
+        gap: clamp(14px, 2.4vw, 30px);
+        font-size: 0.92rem;
+        font-weight: 700;
+      }
+
+      .nav a {
+        color: rgba(255, 255, 255, 0.88);
+        text-decoration: none;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 100%;
+        min-height: 46px;
+        padding: 12px 18px;
+        border: 1px solid transparent;
+        border-radius: var(--radius);
+        color: var(--white);
+        background: var(--clay);
+        font-weight: 850;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      .button.secondary {
+        border-color: rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+      }
+
+      .hero {
+        min-height: 88vh;
+        display: grid;
+        align-items: end;
+        padding: 112px clamp(18px, 4vw, 56px) 52px;
+        color: var(--white);
+        background:
+          linear-gradient(90deg, rgba(11, 14, 12, 0.9) 0%, rgba(11, 14, 12, 0.62) 46%, rgba(11, 14, 12, 0.18) 100%),
+          url("assets/van-on-lift.jpg") center / cover no-repeat;
+      }
+
+      .hero-content {
+        width: 100%;
+        max-width: 880px;
+        min-width: 0;
+      }
+
+      .eyebrow {
+        margin: 0 0 16px;
+        color: var(--sand);
+        font-size: 0.9rem;
+        font-weight: 850;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 820px;
+        margin-bottom: 22px;
+        font-size: clamp(2.7rem, 7vw, 6.4rem);
+        line-height: 0.95;
+        letter-spacing: 0;
+        overflow-wrap: anywhere;
+      }
+
+      .hero-copy {
+        max-width: 690px;
+        margin-bottom: 30px;
+        color: rgba(255, 255, 255, 0.86);
+        font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      section {
+        padding: clamp(58px, 8vw, 104px) clamp(18px, 4vw, 56px);
+      }
+
+      .inner {
+        width: auto;
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+
+      .kicker {
+        margin-bottom: 10px;
+        color: var(--clay);
+        font-size: 0.86rem;
+        font-weight: 850;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        max-width: 820px;
+        margin-bottom: 20px;
+        font-size: clamp(2rem, 4.8vw, 4.2rem);
+        line-height: 1;
+        letter-spacing: 0;
+        overflow-wrap: anywhere;
+      }
+
+      .lead {
+        max-width: 780px;
+        color: var(--muted);
+        font-size: clamp(1.02rem, 1.5vw, 1.18rem);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 34px;
+        min-width: 0;
+      }
+
+      .card {
+        max-width: 100%;
+        min-width: 0;
+        min-height: 100%;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--white);
+      }
+
+      .card strong {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 1.08rem;
+        overflow-wrap: anywhere;
+      }
+
+      .card p {
+        margin-bottom: 0;
+        color: var(--muted);
+        overflow-wrap: anywhere;
+      }
+
+      .video-thumb {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        margin-top: 16px;
+        aspect-ratio: 16 / 9;
+        border-radius: var(--radius);
+        background: #111;
+        text-decoration: none;
+      }
+
+      .video-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 180ms ease;
+      }
+
+      .video-thumb:hover img {
+        transform: scale(1.03);
+      }
+
+      .video-thumb span {
+        position: absolute;
+        left: 12px;
+        bottom: 12px;
+        display: inline-flex;
+        align-items: center;
+        min-height: 34px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        color: var(--white);
+        background: rgba(0, 0, 0, 0.74);
+        font-size: 0.86rem;
+        font-weight: 850;
+      }
+
+      .dark {
+        color: var(--white);
+        background: var(--forest);
+      }
+
+      .dark .kicker,
+      .dark .lead {
+        color: var(--sand);
+      }
+
+      .dark .card {
+        color: var(--ink);
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1fr);
+        gap: clamp(28px, 5vw, 60px);
+        align-items: start;
+      }
+
+      form {
+        display: grid;
+        gap: 14px;
+        padding: clamp(20px, 3vw, 34px);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--white);
+        box-shadow: var(--shadow);
+      }
+
+      label {
+        display: grid;
+        gap: 7px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-weight: 750;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        min-height: 46px;
+        padding: 12px 13px;
+        border: 1px solid #cdd4cb;
+        border-radius: var(--radius);
+        color: var(--ink);
+        background: #fbfbf8;
+        font: inherit;
+      }
+
+      textarea {
+        min-height: 112px;
+        resize: vertical;
+      }
+
+      .note {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 30px clamp(18px, 4vw, 56px);
+        color: rgba(255, 255, 255, 0.7);
+        background: #111511;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 900px) {
+        .topbar {
+          position: absolute;
+        }
+
+        .nav {
+          display: none;
+        }
+
+        .grid,
+        .split {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        h1 {
+          font-size: 2.7rem;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .footer {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar" aria-label="Hauptnavigation">
+      <div class="brand">Vanventure · Montagepartner</div>
+      <nav class="nav">
+        <a href="index.html">Kundenseite</a>
+        <a href="#modell">Modell</a>
+        <a href="#voraussetzungen">Voraussetzungen</a>
+        <a href="#bewerben">Bewerben</a>
+        <a href="installers.html">EN</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">Selbständige Montagepartner gesucht</p>
+          <h1>Montagepartner gesucht.</h1>
+          <p class="hero-copy">
+            Vanventure baut ein Netzwerk für Gear Carrier und Van-Zubehör auf. Wichtig:
+            Erfahrung, sauberer Arbeitsplatz und eigene Betriebshaftpflicht.
+          </p>
+          <div class="actions">
+            <a class="button" href="#bewerben">Als Montagepartner melden</a>
+            <a class="button secondary" href="#voraussetzungen">Voraussetzungen ansehen</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="modell">
+        <div class="inner">
+          <p class="kicker">Partner-Modell</p>
+          <h2>Wir bringen Anfragen. Du montierst.</h2>
+          <p class="lead">
+            Kunden kommen über Vanventure. Wir vermitteln und koordinieren die Anfrage. Die Montage
+            erfolgt durch selbständige Partner, die Termine und Abrechnung direkt mit dem Kunden
+            abstimmen.
+          </p>
+          <div class="grid">
+            <article class="card">
+              <strong>Van-Leads</strong>
+              <p>Qualifizierte Anfragen aus Van-, Outdoor- und MTB-Communitys.</p>
+            </article>
+            <article class="card">
+              <strong>Interne Unterlagen</strong>
+              <p>Hinweise, Checklisten und deutschsprachige Schulungsinhalte.</p>
+              <a class="video-thumb" href="https://www.youtube.com/watch?v=Agyn8RKQtWA" target="_blank" rel="noopener">
+                <img src="https://img.youtube.com/vi/Agyn8RKQtWA/hqdefault.jpg" alt="Video-Vorschau zur Gear Carrier Montage">
+                <span>Video ansehen</span>
+              </a>
+            </article>
+            <article class="card">
+              <strong>Regionale Punkte</strong>
+              <p>Mietwerkstätten oder feste Hebebühnenplätze können passen.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="voraussetzungen" class="dark">
+        <div class="inner">
+          <p class="kicker">Voraussetzungen</p>
+          <h2>Was du mitbringen solltest.</h2>
+          <p class="lead">
+            Heckträger werden am Kundenfahrzeug montiert. Deshalb zählen saubere Arbeit,
+            Dokumentation und Versicherung.
+          </p>
+          <div class="grid">
+            <article class="card">
+              <strong>Betriebshaftpflichtversicherung</strong>
+              <p>Pflicht: eigene Betriebshaftpflichtversicherung, passend für Arbeiten an Kundenfahrzeugen.</p>
+            </article>
+            <article class="card">
+              <strong>Mechanische Erfahrung</strong>
+              <p>Erfahrung mit Fahrzeugumbauten, Anhängerkupplungen, Heckträgern oder Van-Ausbau ist ideal.</p>
+            </article>
+            <article class="card">
+              <strong>Geeigneter Arbeitsplatz</strong>
+              <p>Hebebühne, Werkzeug, sauberer Arbeitsplatz und genug Zeit für eine sorgfältige Montage.</p>
+            </article>
+            <article class="card">
+              <strong>Direkte Abrechnung</strong>
+              <p>Der Montagepartner arbeitet selbständig und rechnet die Montageleistung direkt mit dem Kunden ab.</p>
+            </article>
+            <article class="card">
+              <strong>Dokumentation</strong>
+              <p>Fotos, Checklisten und kurze Rückmeldung nach der Montage helfen bei Qualität und Service.</p>
+            </article>
+            <article class="card">
+              <strong>Kundenorientierung</strong>
+              <p>Freundliche Kommunikation, verbindliche Termine und ehrliche Einschätzung bei Sonderfällen.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="bewerben">
+        <div class="inner split">
+          <div>
+            <p class="kicker">Kontakt</p>
+            <h2>Partner werden.</h2>
+            <p class="lead">
+              Schick uns Standort, Erfahrung, Werkstattmöglichkeit und Versicherungsstatus. Wir
+              prüfen, ob deine Region passt.
+            </p>
+            <p class="note">
+              Vertrag, Haftung und Montagefreigaben klären wir vor der Zusammenarbeit.
+            </p>
+          </div>
+          <form action="mailto:kontakt@example.de" method="post" enctype="text/plain">
+            <label>
+              Name / Firma *
+              <input name="Name oder Firma" required>
+            </label>
+            <label>
+              E-Mail *
+              <input type="email" name="E-Mail" autocomplete="email" required>
+            </label>
+            <label>
+              Standort / Region *
+              <input name="Standort" placeholder="z. B. München, Augsburg, Nürnberg" required>
+            </label>
+            <label>
+              Betriebshaftpflicht vorhanden? *
+              <select name="Betriebshaftpflicht" required>
+                <option value="">Bitte wählen</option>
+                <option>Ja, vorhanden</option>
+                <option>In Klärung</option>
+                <option>Nein</option>
+              </select>
+            </label>
+            <label>
+              Werkstattmöglichkeit *
+              <input name="Werkstatt" placeholder="Eigene Werkstatt, Mietwerkstatt, Hebebühne..." required>
+            </label>
+            <label>
+              Erfahrung *
+              <textarea name="Erfahrung" placeholder="Fahrzeugumbauten, Anhängerkupplungen, Van-Ausbau, Referenzen..." required></textarea>
+            </label>
+            <button class="button" type="submit">Bewerbung senden</button>
+            <p class="note">* Pflichtfeld</p>
+            <p class="note">TODO: Finale E-Mail-Adresse oder Formularsystem eintragen.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Vanventure</span>
+      <span><a href="index.html">Zur Kundenseite</a> · <a href="installers.html">English version</a></span>
+    </footer>
+  </body>
+</html>

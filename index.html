@@ -1,0 +1,978 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vanventure | Offroad-Zubehör und Gear Carrier Montage</title>
+    <meta
+      name="description"
+      content="Vanventure ist der deutschsprachige Ansprechpartner für Van-Zubehör, Offroad-Ausstattung, Gear Carrier Beratung und Montagekoordination."
+    >
+    <style>
+      :root {
+        --ink: #161616;
+        --muted: #5f665f;
+        --line: #d9ded6;
+        --paper: #f7f5ef;
+        --white: #ffffff;
+        --forest: #1f3c2d;
+        --moss: #617448;
+        --clay: #b35d34;
+        --sand: #e8dbc5;
+        --shadow: 0 20px 50px rgba(22, 22, 22, 0.16);
+        --radius: 8px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.5;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .topbar {
+        position: fixed;
+        z-index: 20;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 16px clamp(18px, 4vw, 56px);
+        color: var(--white);
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0));
+      }
+
+      .brand {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .brand span {
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.84rem;
+        font-weight: 650;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: clamp(14px, 2.4vw, 30px);
+        font-size: 0.92rem;
+        font-weight: 650;
+      }
+
+      .nav a {
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.86);
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 12px 18px;
+        border: 1px solid transparent;
+        border-radius: var(--radius);
+        font-weight: 800;
+        text-decoration: none;
+        transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+      }
+
+      .button.primary {
+        color: var(--white);
+        background: var(--clay);
+      }
+
+      .button.secondary {
+        color: var(--white);
+        border-color: rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+      }
+
+      .hero {
+        min-height: 92vh;
+        display: grid;
+        align-items: end;
+        padding: 112px clamp(18px, 4vw, 56px) 52px;
+        color: var(--white);
+        background:
+          linear-gradient(90deg, rgba(11, 14, 12, 0.86) 0%, rgba(11, 14, 12, 0.55) 44%, rgba(11, 14, 12, 0.12) 100%),
+          url("assets/hero-van-no-mtb-final.jpg") center / cover no-repeat;
+      }
+
+      .hero-content {
+        width: 100%;
+        max-width: 880px;
+        min-width: 0;
+      }
+
+      .eyebrow {
+        margin: 0 0 16px;
+        color: var(--sand);
+        font-size: 0.9rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 820px;
+        margin-bottom: 22px;
+        font-size: clamp(2.7rem, 7vw, 6.7rem);
+        line-height: 0.94;
+        letter-spacing: 0;
+        overflow-wrap: anywhere;
+      }
+
+      .hero-copy {
+        max-width: 700px;
+        margin-bottom: 30px;
+        color: rgba(255, 255, 255, 0.86);
+        font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .hero-strip {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1px;
+        margin-top: 56px;
+        width: min(880px, 100%);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .hero-stat {
+        padding: 18px;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(12px);
+      }
+
+      .hero-stat strong {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--white);
+        font-size: 1.05rem;
+      }
+
+      .hero-stat span {
+        color: rgba(255, 255, 255, 0.76);
+        font-size: 0.92rem;
+      }
+
+      section {
+        padding: clamp(58px, 8vw, 104px) clamp(18px, 4vw, 56px);
+      }
+
+      .section-inner {
+        width: auto;
+        max-width: 1180px;
+        margin: 0 auto;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.86fr);
+        gap: clamp(28px, 6vw, 76px);
+        align-items: center;
+      }
+
+      .section-kicker {
+        margin-bottom: 10px;
+        color: var(--clay);
+        font-size: 0.86rem;
+        font-weight: 850;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        font-size: clamp(2rem, 4.8vw, 4.2rem);
+        line-height: 1;
+        letter-spacing: 0;
+        overflow-wrap: anywhere;
+      }
+
+      .lead {
+        max-width: 760px;
+        color: var(--muted);
+        font-size: clamp(1.02rem, 1.5vw, 1.18rem);
+      }
+
+      .media-frame {
+        overflow: hidden;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        background: var(--white);
+      }
+
+      .media-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .product-shot {
+        aspect-ratio: 1.18 / 1;
+        padding: 20px;
+      }
+
+      .product-shot img {
+        object-fit: contain;
+      }
+
+      .solution-gallery {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 34px;
+      }
+
+      .solution-gallery figure {
+        margin: 0;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--white);
+      }
+
+      .solution-gallery img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        padding: 14px;
+        object-fit: contain;
+      }
+
+      .solution-gallery figcaption {
+        padding: 0 14px 14px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-weight: 750;
+      }
+
+      .model-panel {
+        margin-top: 14px;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--white);
+      }
+
+      .model-panel h3 {
+        margin-bottom: 18px;
+        font-size: clamp(1.35rem, 2.4vw, 2rem);
+        line-height: 1.12;
+      }
+
+      .model-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .model-card {
+        min-width: 0;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: #fbfbf8;
+      }
+
+      .model-card strong,
+      .model-card span {
+        display: block;
+      }
+
+      .model-card strong {
+        margin-bottom: 8px;
+      }
+
+      .model-card span {
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      .model-note {
+        margin: 16px 0 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .package-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 34px;
+      }
+
+      .package-card {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--white);
+        box-shadow: var(--shadow);
+      }
+
+      .package-media {
+        min-height: 280px;
+        background: #fbfbf8;
+      }
+
+      .package-media img {
+        width: 100%;
+        height: 100%;
+        min-height: 280px;
+        object-fit: cover;
+      }
+
+      .package-media.contain img {
+        padding: 22px;
+        object-fit: contain;
+      }
+
+      .package-body {
+        padding: clamp(20px, 3vw, 30px);
+      }
+
+      .package-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 14px;
+      }
+
+      .package-head h3 {
+        margin-bottom: 0;
+        font-size: clamp(1.35rem, 2.5vw, 2.1rem);
+        line-height: 1.1;
+      }
+
+      .price {
+        color: var(--clay);
+        font-size: clamp(1.35rem, 2.8vw, 2.4rem);
+        font-weight: 900;
+        white-space: nowrap;
+      }
+
+      .package-body p,
+      .package-list {
+        color: var(--muted);
+      }
+
+      .package-list {
+        margin: 18px 0 0;
+        padding-left: 20px;
+      }
+
+      .package-list li + li {
+        margin-top: 8px;
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 36px;
+        min-width: 0;
+      }
+
+      .step,
+      .service-card {
+        max-width: 100%;
+        min-width: 0;
+        min-height: 100%;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--white);
+      }
+
+      .step-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        margin-bottom: 22px;
+        border-radius: 50%;
+        color: var(--white);
+        background: var(--forest);
+        font-weight: 850;
+      }
+
+      .step h3,
+      .service-card h3 {
+        margin-bottom: 10px;
+        font-size: 1.08rem;
+      }
+
+      .step p,
+      .service-card p {
+        margin-bottom: 0;
+        color: var(--muted);
+      }
+
+      .dark-band {
+        color: var(--white);
+        background: var(--forest);
+      }
+
+      .dark-band .section-kicker,
+      .dark-band .lead {
+        color: var(--sand);
+      }
+
+      .service-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 34px;
+        min-width: 0;
+      }
+
+      .service-card {
+        color: var(--ink);
+      }
+
+      .photo-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr 0.8fr;
+        gap: 14px;
+        margin-top: 34px;
+      }
+
+      .photo-tile {
+        overflow: hidden;
+        min-height: 240px;
+        border-radius: var(--radius);
+        background: var(--white);
+        box-shadow: var(--shadow);
+      }
+
+      .photo-tile.large {
+        grid-row: span 2;
+        min-height: 494px;
+      }
+
+      .photo-tile img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .about-band {
+        background: var(--white);
+      }
+
+      .about-text p {
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+
+      .quote {
+        margin: 28px 0 0;
+        padding-left: 20px;
+        border-left: 4px solid var(--clay);
+        color: var(--ink);
+        font-size: 1.22rem;
+        font-weight: 760;
+        line-height: 1.36;
+      }
+
+      .signup {
+        background:
+          linear-gradient(90deg, rgba(247, 245, 239, 0.96), rgba(247, 245, 239, 0.86)),
+          url("assets/skep-detail-alps.jpg") center / cover no-repeat;
+      }
+
+      .signup-panel {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1fr);
+        gap: clamp(28px, 5vw, 60px);
+        align-items: start;
+      }
+
+      form {
+        display: grid;
+        gap: 14px;
+        padding: clamp(20px, 3vw, 34px);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--white);
+        box-shadow: var(--shadow);
+      }
+
+      label {
+        display: grid;
+        gap: 7px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-weight: 750;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        min-height: 46px;
+        padding: 12px 13px;
+        border: 1px solid #cdd4cb;
+        border-radius: var(--radius);
+        color: var(--ink);
+        background: #fbfbf8;
+        font: inherit;
+      }
+
+      textarea {
+        min-height: 112px;
+        resize: vertical;
+      }
+
+      .fineprint {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 30px clamp(18px, 4vw, 56px);
+        color: rgba(255, 255, 255, 0.7);
+        background: #111511;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 900px) {
+        .topbar {
+          position: absolute;
+        }
+
+        .nav {
+          display: none;
+        }
+
+        .hero {
+          min-height: 86vh;
+          background:
+            linear-gradient(180deg, rgba(11, 14, 12, 0.78) 0%, rgba(11, 14, 12, 0.52) 58%, rgba(11, 14, 12, 0.18) 100%),
+            url("assets/hero-van-no-mtb-final.jpg") center / cover no-repeat;
+        }
+
+        .hero-strip,
+        .steps,
+        .service-grid,
+        .photo-grid,
+        .solution-gallery,
+        .model-grid,
+        .package-grid,
+        .split,
+        .signup-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-strip {
+          margin-top: 36px;
+        }
+
+        .photo-tile.large {
+          grid-row: auto;
+          min-height: 320px;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .hero {
+          padding-top: 94px;
+        }
+
+        h1 {
+          font-size: 2.7rem;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .footer {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar" aria-label="Hauptnavigation">
+      <div class="brand">Vanventure</div>
+      <nav class="nav">
+        <a href="#loesung">Hecksysteme</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#preise">Preisorientierung</a>
+        <a href="#service">Service</a>
+        <a href="#ueber-uns">Über uns</a>
+        <a href="monteure.html">Montagepartner</a>
+        <a href="#anfrage">Anfrage</a>
+        <a href="index-en.html">EN</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">Van · Offroad · Bike · Adventure</p>
+          <h1>Van-Zubehör. Bereit fürs Abenteuer.</h1>
+          <p class="hero-copy">
+            Vanventure bündelt robuste Hecksysteme, Offroad-Zubehör und Montagepartner für
+            Deutschland, Österreich und die Schweiz. Erstes Produkt: der SKEP Gear Carrier.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#anfrage">Montageanfrage stellen</a>
+            <a class="button secondary" href="#ablauf">So funktioniert es</a>
+            <a class="button secondary" href="#preise">Preisorientierung</a>
+          </div>
+          <div class="hero-strip" aria-label="Kernpunkte">
+            <div class="hero-stat">
+              <strong>DACH-Service</strong>
+              <span>Beratung für Deutschland, Österreich und die Schweiz.</span>
+            </div>
+            <div class="hero-stat">
+              <strong>Aus der Praxis</strong>
+              <span>VW-Vans, Mountainbikes und echte Reisen.</span>
+            </div>
+            <div class="hero-stat">
+              <strong>Montage finden</strong>
+              <span>Wir koordinieren passende Montagepunkte.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="loesung">
+        <div class="section-inner">
+          <div class="split">
+            <div>
+              <p class="section-kicker">Die Lösung</p>
+              <h2>Mehr Platz. Hecktür erreichbar.</h2>
+              <p class="lead">
+                Der SKEP Gear Carrier bringt Bikes, Reserverad, Kanister und Recovery-Gear ans
+                Fahrzeugheck. Je nach Aufbau bleibt der Zugang zur Hecktür möglich, ohne Fahrräder
+                und Zubehör jedes Mal abzubauen.
+              </p>
+            </div>
+            <div class="media-frame product-shot">
+              <img src="GEAR CARRIER VW T6.1 .png" alt="SKEP Gear Carrier an einem VW T6.1 mit Fahrrädern und Reserverad">
+            </div>
+          </div>
+
+          <div class="solution-gallery" aria-label="SKEP Gear Carrier Ansichten">
+            <figure>
+              <img src="assets/skep-v11-van-configurator.png" alt="SKEP Gear Carrier Produktansicht für Vans">
+              <figcaption>V11 Van Gear Carrier</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/skep-v11-vw-t6.png" alt="SKEP Gear Carrier Konfiguratoransicht für VW T6.1">
+              <figcaption>VW T5, T6, T6.1</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/skep-v11-renault-trafic.png" alt="SKEP Gear Carrier Konfiguratoransicht für Renault Trafic">
+              <figcaption>Renault Trafic</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/skep-v11-ford-transit-custom.png" alt="SKEP Gear Carrier Konfiguratoransicht für Ford Transit Custom">
+              <figcaption>Ford Transit Custom</figcaption>
+            </figure>
+          </div>
+
+          <div class="model-panel">
+            <p class="section-kicker">Modelle</p>
+            <h3>Vans aus dem SKEP-Konfigurator.</h3>
+            <div class="model-grid" aria-label="Kompatible Fahrzeugmodelle aus dem SKEP-Konfigurator">
+              <div class="model-card">
+                <strong>Volkswagen</strong>
+                <span>T5, T6, T6.1, T7</span>
+              </div>
+              <div class="model-card">
+                <strong>Renault</strong>
+                <span>Trafic II, III, IV</span>
+              </div>
+              <div class="model-card">
+                <strong>Ford</strong>
+                <span>Transit Custom, Custom V710</span>
+              </div>
+              <div class="model-card">
+                <strong>Fiat</strong>
+                <span>Talento</span>
+              </div>
+              <div class="model-card">
+                <strong>Nissan</strong>
+                <span>NV300</span>
+              </div>
+            </div>
+            <p class="model-note">
+              Finale Kompatibilität prüfen wir bei der Montageanfrage. Laut SKEP-Konfigurator sind
+              neue California-Modelle beim T7 sowie Ford Sport/MSRT Varianten ausgenommen.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="ablauf" class="dark-band">
+        <div class="section-inner">
+          <p class="section-kicker">Ablauf</p>
+          <h2>So läuft es ab.</h2>
+          <p class="lead">
+            Du hast deinen Gear Carrier bereits über de.skep.life gekauft oder konfiguriert.
+            Wir prüfen deine Montageoption und schlagen dir passende freie Termine vor.
+          </p>
+          <div class="steps">
+            <article class="step">
+              <div class="step-number">1</div>
+              <h3>Kauf abschließen</h3>
+              <p>Setup direkt bei SKEP wählen.</p>
+            </article>
+            <article class="step">
+              <div class="step-number">2</div>
+              <h3>Montage anfragen</h3>
+              <p>Fahrzeug, Standort und Bestellung senden.</p>
+            </article>
+            <article class="step">
+              <div class="step-number">3</div>
+              <h3>Optionen erhalten</h3>
+              <p>Wir suchen passende Montagepunkte in deiner Nähe.</p>
+            </article>
+            <article class="step">
+              <div class="step-number">4</div>
+              <h3>Termin wählen</h3>
+              <p>Du wählst aus freien Monteuren und möglichen Terminen.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="preise">
+        <div class="section-inner">
+          <p class="section-kicker">Preise</p>
+          <h2>Orientierungspreise.</h2>
+          <p class="lead">
+            Zwei typische Montageumfänge als Orientierung. Vanventure vermittelt und koordiniert
+            passende Montagepartner; Montagevertrag und Abrechnung erfolgen direkt zwischen Kunde
+            und Montagepartner.
+          </p>
+          <div class="package-grid">
+            <article class="package-card">
+              <div class="package-media contain">
+                <img src="assets/skep-v11-van-configurator.png" alt="V11 Van Basis-Heckträger mit zwei Armen">
+              </div>
+              <div class="package-body">
+                <div class="package-head">
+                  <h3>Kleine Montage</h3>
+                  <div class="price">ca. 500 €</div>
+                </div>
+                <p>
+                  Basis-Montage wie im internen Montagevideo: unten Heckträger mit zwei Armen plus
+                  Stromanschluss. Der finale Preis wird vom Montagepartner bestätigt.
+                </p>
+                <ul class="package-list">
+                  <li>Montage des unteren Heckträgers</li>
+                  <li>Zwei Trägerarme am Hecksystem</li>
+                  <li>Stromanschluss am Fahrzeug</li>
+                </ul>
+              </div>
+            </article>
+            <article class="package-card">
+              <div class="package-media">
+                <img src="assets/skep-van-alps.jpg" alt="Großer SKEP Aufbau mit Reserverad, Kisten und Fahrrädern">
+              </div>
+              <div class="package-body">
+                <div class="package-head">
+                  <h3>Große Montage</h3>
+                  <div class="price">ca. 1.000 €</div>
+                </div>
+                <p>
+                  Erweiterter Aufbau nach oben für Reserverad, Kisten und zwei Fahrräder. Der
+                  finale Preis wird vom Montagepartner bestätigt.
+                </p>
+                <ul class="package-list">
+                  <li>Montage des Heckträgers mit oberem Aufbau</li>
+                  <li>Vorbereitung für Reserverad und Kisten</li>
+                  <li>Aufnahme für zwei Fahrräder</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="service">
+        <div class="section-inner">
+          <p class="section-kicker">Service</p>
+          <h2>Was wir übernehmen.</h2>
+          <div class="service-grid">
+            <article class="service-card">
+              <h3>Beratung</h3>
+              <p>Ein Ansprechpartner vor Kauf und Montage.</p>
+            </article>
+            <article class="service-card">
+              <h3>SKEP Start</h3>
+              <p>Wir starten mit dem Gear Carrier und passenden Modulen.</p>
+            </article>
+            <article class="service-card">
+              <h3>Weiter gedacht</h3>
+              <p>Offroad-Zubehör, Van-Ausstattung und später Bikes.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="ueber-uns" class="about-band">
+        <div class="section-inner split">
+          <div class="media-frame">
+            <img src="assets/van-on-lift.jpg" alt="Volkswagen Van auf einer Hebebühne vor der Gear Carrier Montage">
+          </div>
+          <div class="about-text">
+            <p class="section-kicker">Über uns</p>
+            <h2>Geboren aus Van- und MTB-Praxis.</h2>
+            <p>
+              Vanventure entsteht aus eigenem Bedarf: Mountainbiken, Reisen mit VW-Vans und die
+              Suche nach einer stabilen Hecklösung.
+            </p>
+            <p>
+              Wir verbinden Produkterfahrung, Montagekoordination und direkten Kundenservice. So
+              finden Kunden schneller einen passenden Montagepartner.
+            </p>
+            <p class="quote">
+              Nicht nur kaufen. Richtig montieren lassen.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-inner">
+          <p class="section-kicker">Einblicke</p>
+          <h2>Echte Fahrzeuge. Echte Tests.</h2>
+          <p class="lead">
+            Unsere ersten Erfahrungen kommen aus eigenen Fahrzeugen und realen Montagen.
+            Kennzeichen werden vor Veröffentlichung unkenntlich gemacht.
+          </p>
+          <div class="photo-grid">
+            <div class="photo-tile large">
+              <img src="assets/skep-van-alps.jpg" alt="Van mit SKEP Gear Carrier und Outdoor-Zubehör in den Alpen">
+            </div>
+            <div class="photo-tile">
+              <img src="assets/van-side-gear-carrier-anonymized.jpg" alt="VW Van mit montiertem Gear Carrier auf einem Werkstatthof">
+            </div>
+            <div class="photo-tile">
+              <img src="assets/van-on-lift.jpg" alt="VW Van auf einer Hebebühne">
+            </div>
+            <div class="photo-tile">
+              <img src="assets/two-vans-workshop-yard-anonymized.jpg" alt="Zwei Vans auf einem Werkstatthof mit unkenntlichen Kennzeichen">
+            </div>
+            <div class="photo-tile">
+              <img src="assets/skep-detail-alps.jpg" alt="Detailansicht eines SKEP Gear Carrier mit Outdoor-Zubehör in den Alpen">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="anfrage" class="signup">
+        <div class="section-inner signup-panel">
+          <div>
+            <p class="section-kicker">Anfrage</p>
+            <h2>Rückruf anfragen.</h2>
+            <p class="lead">
+              Schick uns Fahrzeug, Standort und Wunschaufbau. Wir melden uns mit den nächsten
+              Schritten.
+            </p>
+            <p class="fineprint">
+              Technische Montageunterlagen geben wir nur intern an geeignete Partner weiter.
+            </p>
+          </div>
+          <form action="mailto:kontakt@example.de" method="post" enctype="text/plain">
+            <label>
+              Name *
+              <input name="Name" autocomplete="name" required>
+            </label>
+            <label>
+              E-Mail *
+              <input type="email" name="E-Mail" autocomplete="email" required>
+            </label>
+            <label>
+              Land *
+              <select name="Land" required>
+                <option value="">Bitte wählen</option>
+                <option>Deutschland</option>
+                <option>Österreich</option>
+                <option>Schweiz</option>
+              </select>
+            </label>
+            <label>
+              Fahrzeug *
+              <input name="Fahrzeug" placeholder="z. B. VW T6.1 California Beach" required>
+            </label>
+            <label>
+              Was suchst du? *
+              <textarea name="Nachricht" placeholder="Gear Carrier, Bike-Träger, Reserverad, Montageort, Wunschtermin..." required></textarea>
+            </label>
+            <button class="button primary" type="submit">Anfrage senden</button>
+            <p class="fineprint">
+              * Pflichtfeld
+            </p>
+            <p class="fineprint">
+              TODO: Die finale E-Mail-Adresse oder ein Buchungsformular kann hier ersetzt werden.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Vanventure</span>
+      <span><a href="monteure.html">Montagepartner gesucht</a> · <a href="index-en.html">English version</a> · Gear Carrier Beratung und Montagekoordination für DE, AT und CH</span>
+    </footer>
+  </body>
+</html>

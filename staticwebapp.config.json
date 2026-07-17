@@ -1,0 +1,17 @@
+{
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": [
+      "/assets/*",
+      "/public/*",
+      "/*.png",
+      "/*.jpg",
+      "/*.jpeg",
+      "/*.webp",
+      "/*.svg"
+    ]
+  },
+  "mimeTypes": {
+    ".html": "text/html; charset=utf-8"
+  }
+}
