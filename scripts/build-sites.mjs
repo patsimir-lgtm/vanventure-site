@@ -8,6 +8,8 @@ const publicRoot = join(dist, "server", "public");
 const staticFiles = [
   "index.html",
   "index-en.html",
+  "datenschutz.html",
+  "privacy.html",
   "monteure.html",
   "installers.html",
   "staticwebapp.config.json",
@@ -40,4 +42,3 @@ await cp(join(root, "worker", "index.js"), join(dist, "server", "index.js"));
 for (const file of staticFiles) {
   await copyIntoPublic(file);
 }
-
