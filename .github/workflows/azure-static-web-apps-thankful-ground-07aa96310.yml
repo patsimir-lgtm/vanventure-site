@@ -31,8 +31,9 @@ jobs:
            script: |
                const coredemo = require('@actions/core')
                return await coredemo.getIDToken()
-           result-encoding: string
-            - name: Build site
+    result-encoding: string
+
+      - name: Build site
         run: |
           npm install
           npm run build
